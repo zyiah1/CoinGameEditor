@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://cq6ife38s32sn"]
+
+[ext_resource type="FontFile" uid="uid://bk7w026vlpsk3" path="res://ARIALBD 1.TTF" id="1_m7lvk"]
+[ext_resource type="Texture2D" uid="uid://dyjc53ulcbn5s" path="res://TitleUI/LineEditSelected.png" id="2_hreyf"]
+[ext_resource type="Texture2D" uid="uid://diq81rvpk2jer" path="res://TitleUI/LineEdit.png" id="3_op7fg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqbti"]
+texture = ExtResource("2_hreyf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cf5l"]
+texture = ExtResource("3_op7fg")
+
+[sub_resource type="Theme" id="Theme_bekqh"]
+LineEdit/font_sizes/font_size = 16
+LineEdit/fonts/font = ExtResource("1_m7lvk")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_uqbti")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_6cf5l")
+LineEdit/styles/read_only = null
+
+[node name="LineEdit" type="LineEdit"]
+offset_right = 140.0
+offset_bottom = 10.0
+theme = SubResource("Theme_bekqh")
+text = "Nothing"

@@ -1,0 +1,410 @@
+[gd_scene load_steps=34 format=3 uid="uid://badtdk6rda4ug"]
+
+[ext_resource type="Script" path="res://creator.gd" id="1_gc1up"]
+[ext_resource type="Texture2D" uid="uid://b8d2yijyjgkkm" path="res://Board_Alb.png" id="2_1h4w1"]
+[ext_resource type="Script" path="res://CamControl.gd" id="2_qksdp"]
+[ext_resource type="Script" path="res://ObjectButton.gd" id="4_0obni"]
+[ext_resource type="Texture2D" uid="uid://dxeq8a6qmyjj7" path="res://ObjUI/button.png" id="4_tjlws"]
+[ext_resource type="Texture2D" uid="uid://dhfm6dxl8u6en" path="res://ObjUI/Lamp.png" id="4_u0rlm"]
+[ext_resource type="Texture2D" uid="uid://cdbi6vdgwp0hk" path="res://ObjUI/buttonhover.png" id="5_5ivef"]
+[ext_resource type="Texture2D" uid="uid://ceil6pn77nah4" path="res://ObjUI/buttonpushed.png" id="6_bqkxg"]
+[ext_resource type="Texture2D" uid="uid://c6wvcpaoopoa0" path="res://ObjUI/Skull.png" id="6_p21ws"]
+[ext_resource type="Texture2D" uid="uid://dq3rston2yetn" path="res://ObjUI/PinSmall.png" id="7_k740i"]
+[ext_resource type="Texture2D" uid="uid://chs88ejepyjes" path="res://ObjUI/PinBig.png" id="8_k0tuk"]
+[ext_resource type="Texture2D" uid="uid://5ixrfpsbwf5a" path="res://ObjUI/Bounce.png" id="9_24l0r"]
+[ext_resource type="Texture2D" uid="uid://dau2bqife2w66" path="res://ObjUI/BounceTilt.png" id="10_a0mmb"]
+[ext_resource type="Texture2D" uid="uid://vf38p2iubf1b" path="res://ObjUI/Bar.png" id="11_ljg57"]
+[ext_resource type="Texture2D" uid="uid://dd5eo5kkegpwr" path="res://ObjUI/BounceTiltflip.png" id="11_uvfel"]
+[ext_resource type="Texture2D" uid="uid://c0fhdxm0q2r7p" path="res://ObjUI/BarTilt.png" id="12_sk80u"]
+[ext_resource type="Texture2D" uid="uid://i22orljrfxdc" path="res://ObjUI/trash.png" id="13_fp3gb"]
+[ext_resource type="Texture2D" uid="uid://b63db0soiwaav" path="res://ObjUI/property.png" id="14_5w6hk"]
+[ext_resource type="Texture2D" uid="uid://c0vq55283b3xl" path="res://ObjUI/BarTiltflip.png" id="14_nqiio"]
+[ext_resource type="Script" path="res://Property.gd" id="20_7tcay"]
+[ext_resource type="Texture2D" uid="uid://bofohviv76uug" path="res://ObjUI/panel.png" id="20_o6a4q"]
+[ext_resource type="Script" path="res://VBox.gd" id="22_ck77n"]
+[ext_resource type="Theme" uid="uid://04ounst6u3uw" path="res://Title.tres" id="22_wo2pr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wmen"]
+texture = ExtResource("4_tjlws")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x7jgw"]
+texture = ExtResource("5_5ivef")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xq3mb"]
+texture = ExtResource("4_tjlws")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_relyr"]
+texture = ExtResource("6_bqkxg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsw8h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loemb"]
+texture = ExtResource("4_tjlws")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y746g"]
+
+[sub_resource type="Animation" id="Animation_dqjsa"]
+resource_name = "IN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.353553, 1),
+"update": 0,
+"values": [Vector2(1966.5, 453.5), Vector2(1222.5, 453.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_x6lte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1966.5, 453.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56671"]
+_data = {
+"IN": SubResource("Animation_dqjsa"),
+"RESET": SubResource("Animation_x6lte")
+}
+
+[node name="Creator" type="Node2D"]
+script = ExtResource("1_gc1up")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -638140.0
+offset_top = -527500.0
+offset_right = -635702.0
+offset_bottom = -525375.0
+scale = Vector2(1000, 1000)
+color = Color(0.231373, 0.678431, 0.568627, 0.556863)
+
+[node name="BG" type="Sprite2D" parent="."]
+
+[node name="Stage" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_1h4w1")
+
+[node name="Camera" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(8, 8)
+script = ExtResource("2_qksdp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Objects" type="HBoxContainer" parent="UI"]
+offset_top = 10.0
+offset_right = 2004.0
+offset_bottom = 198.0
+scale = Vector2(0.8, 0.8)
+alignment = 1
+
+[node name="Lamp" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 188)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("4_u0rlm")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="Skull" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("6_p21ws")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="Pegsmall" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("7_k740i")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="Pegbig" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("8_k0tuk")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="Bounce" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("9_24l0r")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="BounceTiltL" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("10_a0mmb")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="BounceTiltR" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("11_uvfel")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="Bar" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("11_ljg57")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="BarTiltL" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("12_sk80u")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="BarTiltR" type="Button" parent="UI/Objects" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 2.08165e-12)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wmen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("14_nqiio")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="Tools" type="HBoxContainer" parent="UI"]
+offset_top = 162.0
+offset_right = 4007.0
+offset_bottom = 350.0
+scale = Vector2(0.4, 0.4)
+alignment = 1
+
+[node name="delete" type="Button" parent="UI/Tools" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 188)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_loemb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("13_fp3gb")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="property" type="Button" parent="UI/Tools" groups=["buttons"]]
+custom_minimum_size = Vector2(188, 188)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_loemb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x7jgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xq3mb")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_relyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsw8h")
+icon = ExtResource("14_5w6hk")
+icon_alignment = 1
+script = ExtResource("4_0obni")
+
+[node name="Save" type="Button" parent="UI"]
+offset_left = 13.0
+offset_top = 752.0
+offset_right = 285.0
+offset_bottom = 889.0
+text = "Save"
+
+[node name="saveText" type="RichTextLabel" parent="UI"]
+visible = false
+offset_left = 16.0
+offset_top = 734.0
+offset_right = 290.0
+offset_bottom = 762.0
+text = "saving..."
+
+[node name="Name" type="LineEdit" parent="UI"]
+offset_left = 992.0
+offset_top = 808.0
+offset_right = 1598.0
+offset_bottom = 893.0
+placeholder_text = "untitled"
+alignment = 1
+
+[node name="Property" type="Sprite2D" parent="UI"]
+position = Vector2(1966.5, 453.5)
+scale = Vector2(2.29688, 2.82812)
+texture = ExtResource("20_o6a4q")
+script = ExtResource("20_7tcay")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Property"]
+offset_left = -159.0
+offset_top = -138.0
+offset_right = 640.0
+offset_bottom = 542.0
+scale = Vector2(0.4, 0.4)
+horizontal_scroll_mode = 3
+
+[node name="VBox" type="VBoxContainer" parent="UI/Property/ScrollContainer"]
+custom_minimum_size = Vector2(800, 2.08165e-12)
+layout_mode = 2
+alignment = 1
+script = ExtResource("22_ck77n")
+
+[node name="FunctionContainer" type="ScrollContainer" parent="UI/Property"]
+visible = false
+offset_left = -161.0
+offset_top = -138.0
+offset_right = 3039.0
+offset_bottom = 2582.0
+scale = Vector2(0.1, 0.1)
+
+[node name="Close" type="Button" parent="UI/Property"]
+offset_left = -159.0
+offset_top = 136.171
+offset_right = 642.0
+offset_bottom = 197.171
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("22_wo2pr")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y746g")
+text = "-close-"
+
+[node name="Panel" type="Button" parent="UI/Property"]
+offset_left = -156.517
+offset_top = -160.0
+offset_right = 216.483
+offset_bottom = -99.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("22_wo2pr")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y746g")
+text = "Property Panel"
+
+[node name="Functions" type="Button" parent="UI/Property"]
+offset_left = 64.517
+offset_top = -160.0
+offset_right = 296.517
+offset_bottom = -99.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("22_wo2pr")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y746g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y746g")
+text = "Functions
+"
+
+[node name="Animation" type="AnimationPlayer" parent="UI/Property"]
+libraries = {
+"": SubResource("AnimationLibrary_56671")
+}
+
+[node name="AutoSaveTime" type="Timer" parent="."]
+
+[connection signal="pressed" from="UI/Save" to="." method="_on_save_pressed"]
+[connection signal="focus_entered" from="UI/Name" to="Camera" method="_on_name_focus_entered"]
+[connection signal="focus_exited" from="UI/Name" to="Camera" method="_on_name_focus_exited"]
+[connection signal="pressed" from="UI/Property/Close" to="UI/Property/ScrollContainer/VBox" method="_on_new_pressed"]
+[connection signal="pressed" from="UI/Property/Panel" to="UI/Property" method="_on_Property_pressed"]
+[connection signal="pressed" from="UI/Property/Functions" to="UI/Property" method="_on_Functions_pressed"]
+[connection signal="timeout" from="AutoSaveTime" to="." method="_on_auto_save_time_timeout"]

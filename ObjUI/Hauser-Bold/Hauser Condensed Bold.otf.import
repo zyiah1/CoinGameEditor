@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bhoijkxmjww0c"
+path="res://.godot/imported/Hauser Condensed Bold.otf-05ef8b5363adc05cc83a171f08dec782.fontdata"
+
+[deps]
+
+source_file="res://ObjUI/Hauser-Bold/Hauser Condensed Bold.otf"
+dest_files=["res://.godot/imported/Hauser Condensed Bold.otf-05ef8b5363adc05cc83a171f08dec782.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

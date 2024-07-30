@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://csnci2q70jll6"]
+
+[ext_resource type="Script" path="res://FunctionPresets.gd" id="1_bm1nq"]
+[ext_resource type="FontFile" uid="uid://bbrc181h730s" path="res://ObjUI/Hauser-Bold/Hauser.otf" id="2_2e6ek"]
+[ext_resource type="PackedScene" uid="uid://cq6ife38s32sn" path="res://LineEdit.tscn" id="3_k8l71"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uman5"]
+
+[node name="FunctionPresets" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(10, 10)
+script = ExtResource("1_bm1nq")
+
+[node name="text" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 927.7
+offset_top = -94.4
+offset_right = 1039.7
+offset_bottom = -49.4
+scale = Vector2(10, 10)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2e6ek")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_uman5")
+text = "Position"
+editable = false
+
+[node name="text2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 85.1
+offset_top = 304.5
+offset_right = 394.1
+offset_bottom = 349.5
+scale = Vector2(10, 10)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2e6ek")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_uman5")
+text = "X:              Y:"
+editable = false
+
+[node name="X" parent="." instance=ExtResource("3_k8l71")]
+self_modulate = Color(0.796078, 0.796078, 0.796078, 1)
+layout_mode = 0
+offset_left = 363.1
+offset_top = 389.4
+offset_right = 463.1
+offset_bottom = 425.4
+scale = Vector2(10, 10)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "999"
+
+[node name="Y" parent="." instance=ExtResource("3_k8l71")]
+self_modulate = Color(0.796078, 0.796078, 0.796078, 1)
+layout_mode = 0
+offset_left = 2262.8
+offset_top = 402.4
+offset_right = 2362.8
+offset_bottom = 439.4
+scale = Vector2(10, 10)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_uneditable_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "999"
+
+[connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
+[connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]

@@ -1,0 +1,184 @@
+[gd_scene load_steps=16 format=3 uid="uid://d20oyxswjww77"]
+
+[ext_resource type="Script" path="res://Loader.gd" id="1_cumlm"]
+[ext_resource type="Texture2D" uid="uid://b8d2yijyjgkkm" path="res://Board_Alb.png" id="1_o21wx"]
+[ext_resource type="Script" path="res://Create.gd" id="1_ykp80"]
+[ext_resource type="Texture2D" uid="uid://btvvoao28ykhg" path="res://coingame/SignGirl_Alb.png" id="2_3hy5s"]
+[ext_resource type="Theme" uid="uid://04ounst6u3uw" path="res://Title.tres" id="2_gqkaq"]
+[ext_resource type="Script" path="res://Monita.gd" id="3_xfngi"]
+[ext_resource type="AudioStream" uid="uid://dv8acu6ynje4p" path="res://LoadBuzzCut.wav" id="4_s0c0w"]
+[ext_resource type="Texture2D" uid="uid://djo6aps45hh28" path="res://coingame/Coin_Spm.png" id="4_ycimy"]
+[ext_resource type="Texture2D" uid="uid://g3v6fggy0hfl" path="res://TitleUI/Logo.png" id="5_krbv5"]
+[ext_resource type="Script" path="res://SettingsButton.gd" id="8_xm0fc"]
+[ext_resource type="Texture2D" uid="uid://7nxf4nh5k80i" path="res://ObjUI/X.png" id="10_fgvoh"]
+
+[sub_resource type="Animation" id="Animation_auf6o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monita:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-600, -570)]
+}
+
+[sub_resource type="Animation" id="Animation_h7ops"]
+resource_name = "Scroll"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Monita:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-620, -570), Vector2(610, -570)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0p5wt"]
+_data = {
+"RESET": SubResource("Animation_auf6o"),
+"Scroll": SubResource("Animation_h7ops")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cson4"]
+
+[node name="title" type="Node2D"]
+
+[node name="Stage" type="Sprite2D" parent="." groups=["hide"]]
+position = Vector2(800, 554)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_o21wx")
+
+[node name="Monita" type="Sprite2D" parent="Stage"]
+position = Vector2(-600, -570)
+texture = ExtResource("2_3hy5s")
+script = ExtResource("3_xfngi")
+
+[node name="Spawn Point" type="Marker2D" parent="Stage/Monita"]
+position = Vector2(0, 120)
+
+[node name="MonitaMove" type="AnimationPlayer" parent="Stage"]
+libraries = {
+"": SubResource("AnimationLibrary_0p5wt")
+}
+autoplay = "Scroll"
+
+[node name="Spawn pos" type="Sprite2D" parent="Stage"]
+visible = false
+texture = ExtResource("4_ycimy")
+
+[node name="Logo" type="Sprite2D" parent="." groups=["hide"]]
+position = Vector2(765, 398)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_krbv5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_top = 704.0
+offset_right = 1245.0
+offset_bottom = 854.0
+alignment = 1
+
+[node name="Create" type="Button" parent="HBoxContainer" groups=["hide"]]
+custom_minimum_size = Vector2(350, 150)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_gqkaq")
+theme_override_font_sizes/font_size = 100
+text = "Create"
+script = ExtResource("1_ykp80")
+
+[node name="Settings" type="Button" parent="HBoxContainer" groups=["hide"]]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_gqkaq")
+theme_override_font_sizes/font_size = 100
+text = "Settings"
+script = ExtResource("8_xm0fc")
+
+[node name="Node2D" type="Node2D" parent="HBoxContainer/Settings"]
+position = Vector2(-625, -704)
+
+[node name="FileWindow" type="FileDialog" parent="HBoxContainer/Settings/Node2D"]
+title = "Open a Directory"
+size = Vector2i(471, 159)
+theme = ExtResource("2_gqkaq")
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+filters = PackedStringArray("*")
+
+[node name="Load" type="Button" parent="."]
+custom_minimum_size = Vector2(350, 150)
+offset_left = 1029.0
+offset_top = 704.0
+offset_right = 1379.0
+offset_bottom = 854.0
+focus_mode = 0
+theme = ExtResource("2_gqkaq")
+theme_override_font_sizes/font_size = 100
+text = "Load
+"
+script = ExtResource("1_cumlm")
+
+[node name="FileDialog" type="FileDialog" parent="Load" groups=["hide"]]
+title = "Open a File"
+position = Vector2i(0, 36)
+size = Vector2i(1600, 700)
+theme_override_colors/folder_icon_color = Color(0, 1, 1, 1)
+theme_override_colors/file_icon_color = Color(0, 1, 1, 1)
+theme_override_colors/file_disabled_color = Color(1, 0, 0, 1)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*txt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Load/FileDialog"]
+visible = false
+position = Vector2(850.5, 2.08165e-12)
+scale = Vector2(1.778, 0.1)
+texture = ExtResource("10_fgvoh")
+
+[node name="Camera" type="Camera2D" parent="Load"]
+position = Vector2(-1029, -704)
+enabled = false
+zoom = Vector2(8, 8)
+
+[node name="Overlay" type="CanvasLayer" parent="Load"]
+
+[node name="ProgressBar" type="ProgressBar" parent="Load/Overlay"]
+visible = false
+offset_left = 15.0
+offset_top = 361.0
+offset_right = 1581.0
+offset_bottom = 482.0
+theme = ExtResource("2_gqkaq")
+theme_override_font_sizes/font_size = 100
+
+[node name="LineEdit" type="LineEdit" parent="Load/Overlay/ProgressBar"]
+layout_mode = 0
+offset_top = -72.0
+offset_right = 1567.0
+offset_bottom = 3.0
+theme = ExtResource("2_gqkaq")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cson4")
+alignment = 1
+editable = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Load/Overlay/ProgressBar"]
+stream = ExtResource("4_s0c0w")
+
+[connection signal="dir_selected" from="HBoxContainer/Settings/Node2D/FileWindow" to="HBoxContainer/Settings" method="_on_FileWindoe_dir_selected"]
+[connection signal="pressed" from="Load" to="Load" method="_on_pressed"]
+[connection signal="file_selected" from="Load/FileDialog" to="Load" method="_on_file_dialog_file_selected"]

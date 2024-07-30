@@ -1,0 +1,189 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkdu352o8s4ym"]
+
+[ext_resource type="Script" path="res://Options.gd" id="1_fg5fr"]
+[ext_resource type="Theme" uid="uid://04ounst6u3uw" path="res://Title.tres" id="2_7re36"]
+[ext_resource type="Texture2D" uid="uid://8yp0aorqocun" path="res://TitleUI/button.png" id="3_jtslt"]
+[ext_resource type="FontFile" uid="uid://bbrc181h730s" path="res://ObjUI/Hauser-Bold/Hauser.otf" id="4_dd0da"]
+[ext_resource type="Script" path="res://FilePath.gd" id="4_nudxg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w047r"]
+texture = ExtResource("3_jtslt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtwll"]
+texture = ExtResource("3_jtslt")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omh3x"]
+
+[node name="Settings" type="Node2D"]
+script = ExtResource("1_fg5fr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -638140.0
+offset_top = -527500.0
+offset_right = -635702.0
+offset_bottom = -525375.0
+scale = Vector2(1000, 1000)
+color = Color(0, 0.0745098, 0.00784314, 0.556863)
+
+[node name="saveonexit" type="Button" parent="."]
+custom_minimum_size = Vector2(350, 150)
+offset_left = 31.0
+offset_top = 1.0
+offset_right = 956.0
+offset_bottom = 151.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+disabled = true
+toggle_mode = true
+text = "Save on exit"
+
+[node name="saveonexit" type="Button" parent="saveonexit"]
+custom_minimum_size = Vector2(350, 150)
+layout_mode = 0
+offset_left = 952.0
+offset_top = -1.0
+offset_right = 1302.0
+offset_bottom = 151.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+toggle_mode = true
+text = "off"
+
+[node name="scrollbg" type="Button" parent="."]
+custom_minimum_size = Vector2(350, 150)
+offset_left = 31.0
+offset_top = 160.0
+offset_right = 956.0
+offset_bottom = 310.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+disabled = true
+toggle_mode = true
+text = "Reduce Motion"
+
+[node name="toggle" type="Button" parent="scrollbg"]
+custom_minimum_size = Vector2(350, 150)
+layout_mode = 0
+offset_left = 952.0
+offset_top = 1.0
+offset_right = 1302.0
+offset_bottom = 151.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+toggle_mode = true
+text = "off"
+
+[node name="Streamer Mode" type="Button" parent="."]
+custom_minimum_size = Vector2(350, 150)
+offset_left = 31.0
+offset_top = 321.0
+offset_right = 956.0
+offset_bottom = 475.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+disabled = true
+toggle_mode = true
+text = "Hide Filepaths"
+
+[node name="toggle" type="Button" parent="Streamer Mode"]
+custom_minimum_size = Vector2(350, 150)
+layout_mode = 0
+offset_left = 952.0
+offset_top = 1.0
+offset_right = 1302.0
+offset_bottom = 151.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+toggle_mode = true
+text = "off"
+
+[node name="Autosave" type="Button" parent="."]
+custom_minimum_size = Vector2(350, 150)
+offset_left = 469.0
+offset_top = 699.0
+offset_right = 1276.0
+offset_bottom = 888.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+disabled = true
+toggle_mode = true
+text = "Autosave Time"
+
+[node name="LineEdit" type="LineEdit" parent="Autosave"]
+layout_mode = 0
+offset_left = 840.0
+offset_right = 1088.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("4_dd0da")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_jtwll")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_omh3x")
+text = "999"
+alignment = 1
+
+[node name="FilePath" type="Button" parent="."]
+custom_minimum_size = Vector2(350, 150)
+offset_left = 30.0
+offset_top = 484.0
+offset_right = 956.0
+offset_bottom = 666.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+action_mode = 0
+text = "Change Filepath"
+script = ExtResource("4_nudxg")
+
+[node name="Node2D" type="Node2D" parent="FilePath"]
+position = Vector2(-30, -484)
+
+[node name="FileWindow" type="FileDialog" parent="FilePath/Node2D"]
+title = "Open a Directory"
+size = Vector2i(1600, 900)
+theme = ExtResource("2_7re36")
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[node name="back" type="Button" parent="."]
+custom_minimum_size = Vector2(350, 150)
+offset_left = 31.0
+offset_top = 697.0
+offset_right = 446.0
+offset_bottom = 889.0
+focus_mode = 0
+theme = ExtResource("2_7re36")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/disabled = SubResource("StyleBoxTexture_w047r")
+text = "<- Back"
+
+[connection signal="pressed" from="saveonexit/saveonexit" to="." method="_on_setting2_pressed"]
+[connection signal="pressed" from="scrollbg/toggle" to="." method="_on_setting1_pressed"]
+[connection signal="pressed" from="Streamer Mode/toggle" to="." method="_on_setting3_pressed"]
+[connection signal="text_changed" from="Autosave/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="dir_selected" from="FilePath/Node2D/FileWindow" to="." method="_on_file_window_dir_selected"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

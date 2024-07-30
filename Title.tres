@@ -1,0 +1,105 @@
+[gd_resource type="Theme" load_steps=29 format=3 uid="uid://04ounst6u3uw"]
+
+[ext_resource type="FontFile" uid="uid://bbrc181h730s" path="res://ObjUI/Hauser-Bold/Hauser.otf" id="1_setbv"]
+[ext_resource type="Texture2D" uid="uid://cjb51jld2nmi" path="res://TitleUI/buttonhover.png" id="2_2fs4d"]
+[ext_resource type="Texture2D" uid="uid://xyun4jupksd3" path="res://TitleUI/LoadingBarBG.png" id="2_u7j2e"]
+[ext_resource type="Texture2D" uid="uid://73t448m6xpq0" path="res://TitleUI/LoadingBar.png" id="3_fuc5k"]
+[ext_resource type="Texture2D" uid="uid://8yp0aorqocun" path="res://TitleUI/button.png" id="3_ohvgw"]
+[ext_resource type="Texture2D" uid="uid://cyybee6ilhlr8" path="res://TitleUI/buttonpressed.png" id="4_iukl8"]
+[ext_resource type="Texture2D" uid="uid://dyjc53ulcbn5s" path="res://TitleUI/LineEditSelected.png" id="5_0sr6t"]
+[ext_resource type="Texture2D" uid="uid://bofohviv76uug" path="res://ObjUI/panel.png" id="6_drf2u"]
+[ext_resource type="FontFile" uid="uid://bk7w026vlpsk3" path="res://ARIALBD 1.TTF" id="9_paf27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vlad"]
+bg_color = Color(0.0470588, 0.223529, 0.133333, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fef4j"]
+texture = ExtResource("2_2fs4d")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p3x3h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tios5"]
+texture = ExtResource("3_ohvgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lknqf"]
+texture = ExtResource("4_iukl8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gytio"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0cft"]
+texture = ExtResource("5_0sr6t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mx4a"]
+texture = ExtResource("6_drf2u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76qh7"]
+bg_color = Color(0.0901961, 0.345098, 0.215686, 1)
+skew = Vector2(0.03, 2.08165e-12)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t11uh"]
+bg_color = Color(0.305882, 0.694118, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nat7w"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cdrj"]
+bg_color = Color(0.0901961, 0.345098, 0.215686, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnbje"]
+texture = ExtResource("2_u7j2e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kukdr"]
+texture = ExtResource("3_fuc5k")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1g3q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_butqg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_xaben"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hhmf"]
+bg_color = Color(0.14902, 0.45098, 0.129412, 1)
+skew = Vector2(0.01, 2.08165e-12)
+expand_margin_left = 10.0
+expand_margin_top = 30.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e5e0"]
+
+[resource]
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_6vlad")
+Button/fonts/font = ExtResource("1_setbv")
+Button/styles/disabled = SubResource("StyleBoxTexture_fef4j")
+Button/styles/focus = SubResource("StyleBoxEmpty_p3x3h")
+Button/styles/hover = SubResource("StyleBoxTexture_fef4j")
+Button/styles/normal = SubResource("StyleBoxTexture_tios5")
+Button/styles/pressed = SubResource("StyleBoxTexture_lknqf")
+LineEdit/colors/font_uneditable_color = Color(1, 1, 1, 1)
+LineEdit/fonts/font = ExtResource("1_setbv")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_gytio")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_x0cft")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_1mx4a")
+Panel/styles/panel = SubResource("StyleBoxFlat_76qh7")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_t11uh")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_nat7w")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_8cdrj")
+ProgressBar/colors/font_color = Color(0.0980392, 0.341176, 0.215686, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 20
+ProgressBar/fonts/font = ExtResource("1_setbv")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_wnbje")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_kukdr")
+Tree/colors/font_color = Color(0.278431, 0.494118, 0.733333, 1)
+Tree/colors/font_selected_color = Color(1, 0.611765, 0.0470588, 1)
+Tree/fonts/font = ExtResource("9_paf27")
+Tree/fonts/title_button_font = ExtResource("9_paf27")
+Tree/styles/focus = SubResource("StyleBoxEmpty_v1g3q")
+Tree/styles/panel = SubResource("StyleBoxFlat_butqg")
+Window/font_sizes/title_font_size = 26
+Window/fonts/title_font = ExtResource("9_paf27")
+Window/icons/close = SubResource("ImageTexture_xaben")
+Window/styles/embedded_border = SubResource("StyleBoxFlat_5hhmf")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_7e5e0")
